@@ -1,0 +1,146 @@
+yum install git -y
+
+#go to directory where you want local repository with vesion controle and create some empty files, then do  git init, .init file will be created in the directory.
+
+git init
+
+# configure yours and mail with git
+
+git config --global or --local or --system user.mail rohith.6032@gmail.com
+
+git config --global or --local or --system user.name rohith kumar
+
+system 	: for all users in the system
+local	: only applied for the directory
+global	: configuration applied to the user logged in
+
+#configuration will be available in is ~/.gitconfig
+
+#add code file to staging area, git will run algarithem for take shanpshort of file
+
+git add <filename>
+
+# staus will tell us which vesrion control which not 
+
+git status
+
+# what are the changes there in staging area commit to local repository.
+
+vi <filename>
+add data
+
+git sttaus 
+
+there are 2 methods to add changes to local repository 
+methode 1 :
+git add <filename>
+git commit -m "add data"
+git commit -m "adding file"
+method 2:
+# -a will commit all modified files to local repo
+git commit -a -m "add data"
+
+#modifiy an existing file and see defference in version 
+git diff <filename>
+
+# to see all the files which were changed
+git diff
+
+
+git ls-files
+
+#take a file which is allready traked by git amd modify it 
+# to see commits when done, by whome 
+
+git log
+git log --oneline
+git log -1
+git log --praph 
+git lag --pretty
+
+
+#git show command, will show what the changes where done in a file 
+
+git show <youcommitid>
+
+# checkout is to discord the changes which are in working directory
+git checkout --filename
+git add filename2
+# To see defference in mofified file which is staged area (waiting to be commited)
+git diff --staged filename
+# to discrding the cahnges which are in stages area is not possible, we have to sent back the file to working directory frist, then we have discord..
+git reset HEAD filename  
+
+# remove the file from local repo and worling directory
+git rm filename
+
+git staus 
+
+#deletion changes will be in staging area, to delete perminentaly do commit
+
+git commit -m "deletion"
+
+# revert, will revert changes that that happend in the commit id to its previous state
+git revert <commitid>
+
+git opens editer to enter revert massage 
+enter the massage
+save the file 
+revert aslo generate commit id
+
+#reset --hard, is to rest head commit from current to past commit into working dierctory from staging area (brfore past id will be all commits perminetly removed in staging)
+git reset --hard id
+#reset --soft, is to rest head commit from current to past commit into staging area from local repo (brfore past id will be all commits perminetly removed in repo)
+git reset --soft id
+#reset --mixed, is to rest head commit from current to past commit into sworking diercory from local repo directly (brfore past id will be all commits perminetly removed in repo)
+git reset --mixed id
+#git ingnore, certain files in the our project those are not required for version control, we can aske git to ignore 
+
+vi .gitignore
+
+add files to be ignored 
+
+									branching and merging
+# to check braches sttaus in the repo {*current present working branch}
+
+git branch
+
+# to create branch 
+
+git branch <nameofthebranche>
+
+#creating branch and switch to branch
+git checkout -b <nameofthebranche>
+
+# switch to branch from master branch
+
+git checkout <nameofthebranche>
+
+#create the file and commit the changes on the new branch 
+
+touch file.txt
+git add file.txt
+git commit -m "new file"
+
+# switch back to master and see the mew file is there or not
+git checkout master
+git log (no doesnt come new file)
+
+
+# available new comits in feature branch will be merge to master branch by merge command
+
+git merge featurebranch masterbranch 
+
+# to see what commits are there in branch 
+
+git ls-tree -r branch name 
+
+# comare to branches : to know which mommit not merched with master 
+git diff --name-only branch master
+
+
+
+ 
+
+
+
